@@ -39,7 +39,7 @@ async def predict_sentiment(request: TextRequest):
     prediction = logistic_regression_model.predict(text_tfidf)
     prediction_prob = logistic_regression_model.predict_proba(text_tfidf)[0]
     
-    sentiment = "Positive" if prediction == 'positive' else "Negative"
+    sentiment = "Positive" if prediction == 1 else "Negative"
     confidence = max(prediction_prob)
     
     last_predicted_text["text"] = request.text
