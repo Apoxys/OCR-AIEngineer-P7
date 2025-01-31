@@ -6,7 +6,7 @@ import numpy as np
 class TestRegressionModel(unittest.TestCase):
     MODEL_PATH = "model_to_keep/tf_idf_LR/tf_idf_LR_model.pkl"
     VECTORIZER_PATH = "model_to_keep/tf_idf_LR/tf_idfvectorizer.pkl"
-    VOCAB = "model_to_keep/tf_idf_LR/tfidf_vocab.json"
+    VOCAB = "model_to_keep/tf_idf_LR/tfidf_vocab"
     TEST_SENTENCE = "This was amazing."
 
     def setUp(self):
