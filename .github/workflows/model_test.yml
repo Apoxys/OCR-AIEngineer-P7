@@ -25,7 +25,7 @@ jobs:
 
       - name: Run Unit Tests
         run: |
-          python -m unittest tests.model_test.py
+          python -m unittest tests.model_test
 
       - name: Create Pull Request if tests pass
         if: success()
