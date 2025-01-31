@@ -24,7 +24,8 @@ jobs:
           if [ -f req_test.txt ]; then pip install -r req_test.txt; fi
 
       - name: Run Unit Tests
-        run: python -m unittest "model_test.py"
+        run: |
+          python -m unittest tests.model_test.py
 
       - name: Create Pull Request if tests pass
         if: success()
