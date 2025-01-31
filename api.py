@@ -8,8 +8,8 @@ import os
 app = FastAPI()
 
 #Load vectorizer and model
-tfidf_vectorizer = joblib.load("tfidf_vectorizer.pkl")
-logistic_regression_model = joblib.load("logistic_regression_model.pkl")
+tfidf_vectorizer = joblib.load("model_to_keep/tf_idf_LR/tfidf_vectorizer.pkl")
+logistic_regression_model = joblib.load("model_to_keep/tf_idf_LR/tf_idf_LR_model.pkl")
 
 #Request schemas
 class TextRequest(BaseModel):
@@ -39,7 +39,7 @@ async def predict_sentiment(request: TextRequest):
     prediction = logistic_regression_model.predict(text_tfidf)
     prediction_prob = logistic_regression_model.predict_proba(text_tfidf)[0]
     
-    sentiment = "Positive" if prediction == 1 else "Negative"
+    sentiment = "Positive" if prediction == 'positive' else "Negative"
     confidence = max(prediction_prob)
     
     last_predicted_text["text"] = request.text
