@@ -1,6 +1,0 @@
-name: CI Workflow
-
-on:
-  push:
-    branches:
-      - main
