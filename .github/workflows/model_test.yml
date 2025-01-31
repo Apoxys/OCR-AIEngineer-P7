@@ -1,0 +1,37 @@
+name: Run Unit Tests and Create Merge Request
+
+on:
+  push:
+    branches:
+      - 'working'
+
+jobs:
+  test-and-merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f req_test.txt ]; then pip install -r req_test.txt; fi
+
+      - name: Run Unit Tests
+        run: python -m unittest discover -s tests "model_test.py"
+
+      - name: Create Pull Request if tests pass
+        if: success()
+        uses: peter-evans/create-pull-request@v5
+        with:
+          title: "Automated Merge Request: New changes"
+          body: "All tests passed! This PR is automatically created for merging into main."
+          branch: ${{ github.ref_name }}
+          base: main
+          delete-branch: true
