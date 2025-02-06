@@ -4,3 +4,5 @@ model_in_progress/
 feedback.json
 */__pychache__
 __pychache__
+__pycache__/
+*.pyc
