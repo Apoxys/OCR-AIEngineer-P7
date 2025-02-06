@@ -22,8 +22,8 @@ jobs:
       - name: Build Docker image
         run: |
           docker compose build 
-          docker tag ocr_ai_engineer_p7-my-api:latest apoxys/sentiment-api:${{ github.run_number }}
-          docker tag ocr_ai_engineer_p7-my-api:latest apoxys/sentiment-api:latest
+          docker tag ocr-aiengineer-p7-my-api:latest apoxys/sentiment-api:${{ github.run_number }}
+          docker tag ocr-aiengineer-p7-my-api:latest apoxys/sentiment-api:latest
       
       - name: Push Docker image
         run: |
