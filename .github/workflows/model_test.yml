@@ -35,4 +35,4 @@ jobs:
           body: "All tests passed! This PR is automatically created for merging into main."
           branch: ${{ github.ref_name }}
           base: main
-          delete-branch: true
+          delete-branch: false
