@@ -2,3 +2,5 @@ data/
 mlruns/
 model_in_progress/
 feedback.json
+*/__pychache__
+__pychache__
